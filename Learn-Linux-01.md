@@ -1,5 +1,25 @@
 ## 第五章 首次登陆与在线求助 man page
 
+
+<!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
+
+- [第五章 首次登陆与在线求助 man page](#第五章-首次登陆与在线求助-man-page)
+	- [5.1 首次登陆](#51-首次登陆)
+	- [5.2 文本模式下命令的下达](#52-文本模式下命令的下达)
+		- [5.2.1 开始下达命令 (CLI)](#521-开始下达命令-cli)
+		- [5.2.2 重要的几个热键[Tab], [ctrl]-c, [ctrl]-d](#522-重要的几个热键tab-ctrl-c-ctrl-d)
+		- [5.2.3 错误信息的察看](#523-错误信息的察看)
+	- [5.3 Linux系统的在线求助man page与info page](#53-linux系统的在线求助man-page与info-page)
+		- [5.3.1 man page](#531-man-page)
+		- [5.3.2 info page](#532-info-page)
+		- [5.3.3 其他有用的文件(documents)](#533-其他有用的文件documents)
+	- [5.4 超简单文书编辑器： nano](#54-超简单文书编辑器-nano)
+	- [5.5 正确的关机方法](#55-正确的关机方法)
+	- [5.6 启动过程的问题排解](#56-启动过程的问题排解)
+
+<!-- tocstop -->
+
+
 ### 5.1 首次登陆
 
 > su root     #取得root权限
@@ -112,3 +132,33 @@ info page则是将文件数据拆成一个一个的段落，每个段落用自�
 #### 5.3.3 其他有用的文件(documents)
 
 /usr/share/doc 说明文档
+
+### 5.4 超简单文书编辑器： nano
+
+```
+[vbird@www ~]$ nano text.txt
+# 不管text.txt存不存在都没有关系！存在就开启旧档，不存在就新建
+```
+
+### 5.5 正确的关机方法
+
+* 将数据同步写入硬盘中的命令： sync
+* 惯用的关机命令： shutdown
+* 重新启动，关机： reboot, halt, poweroff
+
+```
+[root@www ~]# shutdown -h now
+立刻关机，其中 now 相当于时间为 0 的状态
+[root@www ~]# shutdown -h 20:25
+系统在今天的 20:25 分会关机，若在21:25才下达此命令，则隔天才关机
+[root@www ~]# shutdown -h +10
+系统再过十分钟后自动关机
+[root@www ~]# shutdown -r now
+系统立刻重新启动
+[root@www ~]# shutdown -r +30 'The system will reboot'  
+再过三十分钟系统会重新启动，并显示后面的信息给所有在在线的使用者
+[root@www ~]# shutdown -k now 'This system will reboot'  
+仅发出警告信件的参数！系统并不会关机啦！吓唬
+```
+
+### 5.6 启动过程的问题排解
