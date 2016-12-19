@@ -28,13 +28,11 @@
 
 zcat 则可以读取纯文字档被压缩后的压缩档
 
-#### bzip2, bzcat
-
+#### bzip2, bzcat 最常用的压缩命令
 ```
 [root@www ~]# bzip2 [-cdkzv#] 档名
 [root@www ~]# bzcat 档名.bz2
 选项与参数：
--c  ：将压缩的过程产生的数据输出到萤幕上！
 -d  ：解压缩
 -k  ：保留原始文件，而不会删除原始的文件喔！
 -z  ：压缩的参数
@@ -49,5 +47,12 @@ zcat 则可以读取纯文字档被压缩后的压缩档
 * 压　缩：tar -jcv -f filename.tar.bz filename
 * 查　询：tar -jtv -f filename.tar.bz
 * 解压缩：tar -jxv -f filename.tar.bz -C 欲解压缩的目录
+
+-j, --bzip2 压缩文件夹内文件
+-c， --create
+-t， --list
+-v, --verbose
+
+
 
 ### 8.4 完整备份工具：dump
